@@ -1,0 +1,18 @@
+batch-properties:
+  logFilePath: ${logFilePath}
+  inputFilePath: ${inputFilePath}
+  reportFilePath: ${reportFilePath}
+  outputFilePath: ${outputFilePath}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customer
+    username: devuser
+    password: pass
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+

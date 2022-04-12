@@ -1,0 +1,28 @@
+<configuration debug = "true">
+
+    <property name = "FILE_LOG_PATTERN"
+        value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %5p [%t] @%X{request-id} \\(%F:%L\\) --- %m%n" />
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${logFilePath}/customer-detail-batch.log</File>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logFilePath}/customer-detail-batch.%d</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="org.springframework" level="INFO">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="com.shanthan.customerdetailsbatch" level="DEBUG">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="com.shanthan.customerdetailsbatch.config" level="DEBUG">
+        <appender-ref ref="FILE" />
+    </logger>
+
+</configuration>
