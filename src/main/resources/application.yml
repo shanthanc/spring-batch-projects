@@ -1,12 +1,15 @@
 batch-properties:
   logFilePath: ${logFilePath}
   inputFilePath: ${inputFilePath}
-  reportFilePath: ${reportFilePath}
+  badRecordFilePath: ${badRecordFilePath}
   outputFilePath: ${outputFilePath}
 
 spring:
+  batch:
+    jdbc:
+      initialize-schema: always
   datasource:
-    url: jdbc:postgresql://localhost:5432/customer
+    url: jdbc:postgresql://localhost:5432/customerbatch
     username: devuser
     password: pass
   jpa:
